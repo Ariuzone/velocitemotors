@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Logo Borgvik">
+  <title>Borgvik — emblème</title>
+  <!-- aurora arc + ligne d'horizon : B nordique minimal -->
+  <defs>
+    <linearGradient id="bvGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7FD1C8"/>
+      <stop offset="1" stop-color="#3D9A8F"/>
+    </linearGradient>
+  </defs>
+  <path d="M20 92 C20 40 40 22 60 22 C80 22 100 40 100 92" fill="none" stroke="url(#bvGrad)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M36 92 C36 58 46 44 60 44 C74 44 84 58 84 92" fill="none" stroke="#EAF4F2" stroke-width="6" stroke-linecap="round"/>
+  <path d="M14 96 H106" stroke="#7FD1C8" stroke-width="5" stroke-linecap="round"/>
+</svg>

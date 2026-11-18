@@ -1,0 +1,107 @@
+<!--
+title: Configurateur — Composez votre véhicule | Vélocité Motors
+desc: Configurez votre Aurelis, Borgvik ou Tessari : motorisation, finition, peinture, jantes, intérieur et options. Prix total en temps réel et demande de devis.
+active: configurateur
+script: config
+-->
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Configurateur</span></nav>
+    <p class="eyebrow">Atelier de configuration</p>
+    <h1 class="title-xl">Composez la vôtre<span class="italic-accent"> pièce par pièce.</span></h1>
+    <p class="lead" style="max-width:700px">Motorisation, finition, peinture, jantes, intérieur, options : le prix total se met à jour en temps réel, et votre configuration part en devis directement chez nous.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="field" style="max-width:520px;margin-bottom:var(--space-5)">
+      <label for="cfg-modele-select">Étape 0 — Choisissez le modèle de base</label>
+      <select id="cfg-modele-select"></select>
+    </div>
+
+    <div class="config-layout" id="cfg-body">
+      <div>
+        <div class="config-stage">
+          <div class="config-stage-img" id="cfg-stage"></div>
+          <div class="config-stage-foot">
+            <span class="config-step-tag" id="cfg-step-label"></span>
+            <span class="muted">Rendu d'illustration — la peinture appliquée est indicative</span>
+          </div>
+        </div>
+        <p class="sr-only" id="cfg-live" aria-live="polite"></p>
+
+        <div class="config-panel" style="margin-top:var(--space-3)">
+          <h3><span class="step-num">1</span>Motorisation</h3>
+          <div class="opt-row" id="cfg-motors"></div>
+        </div>
+        <div class="config-panel">
+          <h3><span class="step-num">2</span>Finition</h3>
+          <div class="opt-row" id="cfg-finitions"></div>
+        </div>
+        <div class="config-panel">
+          <h3><span class="step-num">3</span>Peinture <span class="muted" id="cfg-couleur-nom" style="font-weight:400;font-size:13px"></span></h3>
+          <div class="swatches" id="cfg-couleurs"></div>
+        </div>
+        <div class="config-panel">
+          <h3><span class="step-num">4</span>Jantes</h3>
+          <div class="opt-row" id="cfg-jantes"></div>
+        </div>
+        <div class="config-panel">
+          <h3><span class="step-num">5</span>Intérieur</h3>
+          <div class="opt-row" id="cfg-interieurs"></div>
+        </div>
+        <div class="config-panel">
+          <h3><span class="step-num">6</span>Options</h3>
+          <div id="cfg-options"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="summary">
+          <h3 style="font-family:var(--font-body);font-size:16px;margin-bottom:10px">Votre configuration <span class="gold" id="cfg-title"></span></h3>
+          <div id="cfg-summary"></div>
+          <div class="config-actions" id="cfg-form-wrap">
+            <form id="cfg-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="cfg-nom">Nom et prénom <span class="req" aria-hidden="true">*</span></label>
+                  <input id="cfg-nom" name="nom" type="text" autocomplete="name" required>
+                  <p class="error-msg">Merci d'indiquer votre nom.</p>
+                </div>
+                <div class="field">
+                  <label for="cfg-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+                  <input id="cfg-email" name="email" type="email" autocomplete="email" required>
+                  <p class="error-msg">Adresse e-mail invalide.</p>
+                </div>
+                <div class="field full">
+                  <label for="cfg-tel">Téléphone <span class="muted" style="font-weight:400">(optionnel)</span></label>
+                  <input id="cfg-tel" name="tel" type="tel" data-type="tel" autocomplete="tel" placeholder="06 00 00 00 00">
+                  <p class="error-msg">Numéro invalide.</p>
+                </div>
+                <div class="field full">
+                  <label for="cfg-msg">Un mot pour votre conseiller <span class="muted" style="font-weight:400">(optionnel)</span></label>
+                  <textarea id="cfg-msg" name="message" placeholder="Délais souhaités, reprise éventuelle, questions…"></textarea>
+                </div>
+                <div class="field full">
+                  <label class="checkbox-row"><input type="checkbox" required><span>J'accepte que mes informations soient utilisées pour traiter ma demande de devis, conformément à la <a href="confidentialite.html">politique de confidentialité</a>. <span class="req" aria-hidden="true">*</span></span></label>
+                </div>
+              </div>
+              <p class="form-note" style="margin:10px 0">Aucun paiement en ligne : il s'agit d'une demande de devis, sans engagement.</p>
+              <button type="submit" class="btn btn-primary btn-block">Recevoir mon devis détaillé</button>
+            </form>
+          </div>
+          <div class="confirm-box" id="cfg-confirm" hidden>
+            <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>Merci, votre configuration est en route !</h3>
+            <p>Votre conseiller vous envoie sous 24 h ouvrées un devis complet (équipements, délais de livraison, reprise éventuelle).</p>
+            <p class="gold" style="font-weight:600" id="cfg-recap-final"></p>
+            <p class="muted">Une modification ? <a href="configurateur.html">Recommencez votre configuration</a> ou appelez-nous.</p>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:12px">Prix TTC indicatifs, hors immatriculation et malus éventuel. Rendu de peinture non contractuel : passez au showroom pour juger les teintes en vrai.</p>
+      </div>
+    </div>
+  </div>
+</section>

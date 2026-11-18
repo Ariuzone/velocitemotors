@@ -1,0 +1,109 @@
+<!--
+title: Véhicules d'occasion garanties à Lille | Vélocité Motors
+desc: 15 occasions expertisées en 160 points : Aurelis, Borgvik et Tessari de 2017 à 2023. Filtrez par budget, kilométrage, énergie et boîte de vitesses.
+active: occasions
+script: occasions
+-->
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Occasions</span></nav>
+    <p class="eyebrow">Stock reconditionné</p>
+    <h1 class="title-xl">Nos occasions <span class="italic-accent">garanties</span></h1>
+    <p class="lead" style="max-width:700px">Chaque véhicule passe un contrôle en 160 points dans notre atelier, bénéficie d'un reconditionnement complet et d'une garantie de 12 à 24 mois. Historique d'entretien remis avec chaque vente.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container-wide">
+    <form class="filters-bar" aria-label="Filtres du stock d'occasion" onsubmit="return false">
+      <div class="field">
+        <label for="f-marque">Marque</label>
+        <select id="f-marque">
+          <option value="">Toutes</option>
+          <option value="aurelis">Aurelis</option>
+          <option value="borgvik">Borgvik</option>
+          <option value="tessari">Tessari</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-modele">Modèle</label>
+        <select id="f-modele"><option value="">Tous les modèles</option></select>
+      </div>
+      <div class="field">
+        <label for="f-energie">Énergie</label>
+        <select id="f-energie">
+          <option value="">Toutes</option>
+          <option>Essence</option>
+          <option>Diesel</option>
+          <option>Électrique</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-boite">Boîte</label>
+        <select id="f-boite">
+          <option value="">Toutes</option>
+          <option>Automatique</option>
+          <option>Manuelle</option>
+        </select>
+      </div>
+      <div class="field range-field" style="margin:0">
+        <div class="range-head"><label for="f-budget">Budget</label><output>Illimité</output></div>
+        <input type="range" id="f-budget" min="10000" max="200000" step="5000" value="200000">
+      </div>
+      <div class="field range-field" style="margin:0">
+        <div class="range-head"><label for="f-km">Kilométrage</label><output>Illimité</output></div>
+        <input type="range" id="f-km" min="5000" max="200000" step="5000" value="200000">
+      </div>
+      <div class="field range-field" style="margin:0">
+        <div class="range-head"><label for="f-annee">Année mini</label><output>≥ 2000</output></div>
+        <input type="range" id="f-annee" min="2010" max="2024" step="1" value="2010">
+      </div>
+      <div class="field">
+        <label for="f-tri">Trier par</label>
+        <select id="f-tri">
+          <option value="prix-asc">Prix croissant</option>
+          <option value="prix-desc">Prix décroissant</option>
+          <option value="km-asc">Kilométrage croissant</option>
+          <option value="annee-desc">Année récente</option>
+          <option value="recent-desc">Récent + peu km</option>
+        </select>
+      </div>
+    </form>
+    <div class="results-head" style="margin-top:var(--space-4)">
+      <p class="filters-count" id="occ-count" role="status">…</p>
+      <button type="button" class="btn btn-ghost btn-sm" id="f-reset">Réinitialiser les filtres</button>
+    </div>
+    <div class="grid grid-3" id="occ-grid" style="margin-top:var(--space-4)"></div>
+    <div class="no-results" id="occ-empty" hidden>
+      <h3 class="title-md">Aucun véhicule ne correspond à ces critères</h3>
+      <p>Élargissez votre budget ou votre kilométrage — ou <a href="contact.html">dites-nous ce que vous cherchez</a>, nous gérons une liste de recherche personnalisée.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-2);border-block:1px solid var(--line-soft)">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow center">Notre promesse occasion</p>
+      <h2 class="title-lg">Acheter d'occasion, sans mauvaise surprise</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="tile reveal">
+        <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
+        <h3>Contrôle 160 points</h3>
+        <p>Moteur, châssis, électronique, carrosserie : le rapport d'expertise complet vous est remis, aucune zone d'ombre.</p>
+      </div>
+      <div class="tile reveal" style="--d:120ms">
+        <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M12 2 15 8l6 1-4.5 4.3L17.6 20 12 16.8 6.4 20l1.1-6.7L3 9l6-1z"/></svg></div>
+        <h3>Garantie 12 à 24 mois</h3>
+        <p>Pièces et main-d'œuvre, effective dans tout le réseau agréé. Extension possible jusqu'à 36 mois.</p>
+      </div>
+      <div class="tile reveal" style="--d:240ms">
+        <div class="tile-icon"><svg viewBox="0 0 24 24"><path d="M4 12h16M4 12l4-4M4 12l4 4M14 6h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/></svg></div>
+        <h3>Reprise de votre ancienne</h3>
+        <p>Nous rachetons votre véhicule même sans achat chez nous. Estimation en ligne puis expertise gratuite.</p>
+      </div>
+    </div>
+  </div>
+</section>

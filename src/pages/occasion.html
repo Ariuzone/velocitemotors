@@ -1,0 +1,53 @@
+<!--
+title: Fiche véhicule d'occasion | Vélocité Motors
+desc: Fiche détaillée d'un véhicule d'occasion garanté : kilométrage, énergie, équipements, historique et prix.
+active: occasions
+script: vo
+-->
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><a href="occasions.html">Occasions</a><span aria-hidden="true">/</span><span data-bc-modele>Véhicule</span></nav>
+    <p class="eyebrow" id="vo-badge">Occasion</p>
+    <h1 class="title-xl" id="vo-nom">Véhicule</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide fiche-layout">
+    <div class="fiche-gallery">
+      <div class="fiche-main-img"><img id="vo-main-img" src="" alt=""></div>
+      <div class="fiche-thumbs" id="vo-thumbs"></div>
+      <p class="form-note" style="margin-top:10px">Photos d'illustration de stock — le véhicule réel est visible au showroom.</p>
+    </div>
+    <div>
+      <div class="buy-box">
+        <p class="eyebrow" style="margin-bottom:6px">Prix de vente</p>
+        <div class="car-price" style="font-size:38px" id="vo-prix">—</div>
+        <p class="muted">soit <span class="gold" id="vo-mens">—</span> en crédit 60 mois* <a id="vo-mens-link" href="financement.html">simuler</a></p>
+        <p class="muted" id="vo-garant"></p>
+        <div class="config-actions">
+          <a class="btn btn-primary" id="vo-essai-link" href="rendez-vous.html">Réserver un essai</a>
+          <a class="btn btn-ghost" href="contact.html?vehicule=oui">Demander des informations</a>
+        </div>
+        <p class="form-note" style="margin-top:10px">*Estimation crédit 60 mois, apport 20 %, TAEG 3,9 %. Définitive après validation du dossier. Prix TTC, hors frais de carte grise.</p>
+      </div>
+      <h2 class="title-md" style="margin-top:var(--space-5)">Caractéristiques</h2>
+      <div class="spec-grid" id="vo-specs"></div>
+      <h2 class="title-md">Notre commentaire</h2>
+      <p class="lead" id="vo-desc"></p>
+      <h2 class="title-md">Équipements notables</h2>
+      <ul class="equip-list" id="vo-equipements" style="margin-top:var(--space-3)"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div class="section-head">
+      <p class="eyebrow">Continuer la visite</p>
+      <h2 class="title-lg">D'autres occasions du stock</h2>
+    </div>
+    <div class="grid grid-3" id="vo-autres"></div>
+  </div>
+</section>

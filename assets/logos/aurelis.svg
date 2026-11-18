@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Logo Aurelis">
+  <title>Aurelis — emblème</title>
+  <defs>
+    <linearGradient id="auGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2E9D8"/>
+      <stop offset="1" stop-color="#C8A96A"/>
+    </linearGradient>
+  </defs>
+  <!-- compas / étoile polaire : A stylisé -->
+  <path d="M60 14 L98 100 H82 L60 48 L38 100 H22 Z" fill="url(#auGrad)"/>
+  <path d="M46 74 H74" stroke="#10141B" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="60" cy="10" r="6" fill="#C8A96A"/>
+</svg>

@@ -1,0 +1,109 @@
+<!--
+title: Simulateur de financement & LOA | Vélocité Motors Lille
+desc: Estimez votre mensualité en temps réel : crédit classique ou location avec option d'achat (LOA), apport, durée et kilométrage ajustables. Réponse d'un conseiller sous 24 h.
+active: financement
+script: financement
+-->
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Financement</span></nav>
+    <p class="eyebrow">Simulateur en ligne</p>
+    <h1 class="title-xl">Votre mensualité<span class="italic-accent"> en 30 secondes.</span></h1>
+    <p class="lead" style="max-width:700px">Crédit classique ou LOA avec entretien inclus : ajustez véhicule, apport, durée et kilométrage — la mensualité se recalcule instantanément.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="sim-layout">
+      <div class="config-panel">
+        <h3>Le véhicule</h3>
+        <div class="field" style="margin-top:12px">
+          <label for="sim-vehicle">Modèle à financer</label>
+          <select id="sim-vehicle"></select>
+        </div>
+        <h3 style="margin-top:var(--space-4)">La formule</h3>
+        <div class="seg-group" id="sim-modes" role="group" aria-label="Type de financement" style="margin-top:12px">
+          <button type="button" class="seg selected" data-mode="credit" aria-pressed="true">Crédit classique</button>
+          <button type="button" class="seg" data-mode="loa" aria-pressed="false">LOA (location avec option d'achat)</button>
+        </div>
+        <div class="range-field" style="margin-top:var(--space-4)">
+          <div class="range-head"><label for="sim-apport">Apport</label><output id="sim-apport-out">15 %</output></div>
+          <input type="range" id="sim-apport" min="0" max="50" step="1" value="15">
+        </div>
+        <div class="range-field" id="sim-km-wrap" style="display:none">
+          <div class="range-head"><label for="sim-km">Kilométrage annuel (LOA)</label><output id="sim-km-out">15 000 km/an</output></div>
+          <input type="range" id="sim-km" min="8000" max="30000" step="1000" value="15000">
+        </div>
+        <h3 style="margin-top:var(--space-4)">La durée</h3>
+        <div class="seg-group" id="sim-durees" role="group" aria-label="Durée de financement" style="margin-top:12px"></div>
+      </div>
+
+      <div>
+        <div class="summary sim-result">
+          <p class="eyebrow" style="justify-content:center">Votre mensualité estimée</p>
+          <div class="big"><span id="sim-mens">—</span><small> / mois</small></div>
+          <div style="margin-top:var(--space-4);text-align:left" id="sim-detail"></div>
+          <p class="form-note" style="text-align:left">Simulation hors assurance, non contractuelle. Offre définitive après étude du dossier par notre partenaire financier. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</p>
+        </div>
+        <div class="config-panel" style="margin-top:var(--space-3)" id="sim-form-wrap">
+          <h3>Recevoir une offre détaillée</h3>
+          <form id="sim-form" novalidate style="margin-top:12px">
+            <div class="form-grid">
+              <div class="field">
+                <label for="sim-nom">Nom et prénom <span class="req" aria-hidden="true">*</span></label>
+                <input id="sim-nom" type="text" autocomplete="name" required>
+                <p class="error-msg">Merci d'indiquer votre nom.</p>
+              </div>
+              <div class="field">
+                <label for="sim-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+                <input id="sim-email" type="email" autocomplete="email" required>
+                <p class="error-msg">Adresse e-mail invalide.</p>
+              </div>
+              <div class="field full">
+                <label for="sim-tel">Téléphone <span class="req" aria-hidden="true">*</span></label>
+                <input id="sim-tel" type="tel" data-type="tel" autocomplete="tel" required placeholder="06 00 00 00 00">
+                <p class="error-msg">Numéro invalide.</p>
+              </div>
+              <div class="field full">
+                <label class="checkbox-row"><input type="checkbox" required><span>J'accepte d'être contacté(e) au sujet de cette simulation, conformément à la <a href="confidentialite.html">politique de confidentialité</a>. <span class="req" aria-hidden="true">*</span></span></label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top:14px">Envoyer ma simulation</button>
+          </form>
+        </div>
+        <div class="confirm-box" id="sim-confirm" hidden>
+          <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Simulation reçue !</h3>
+          <p>Léa Fontaine, notre spécialiste financement, vous rappelle sous 24 h ouvrées avec une offre chiffrée et définitive.</p>
+          <a class="btn btn-ghost btn-sm" href="occasions.html" style="margin-top:8px">Poursuivre mes recherches</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-2);border-block:1px solid var(--line-soft)">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Bien choisir</p>
+      <h2 class="title-lg">Crédit ou LOA : que choisir ?</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption class="sr-only">Comparaison entre le crédit classique et la LOA</caption>
+        <thead><tr><th scope="col">Critère</th><th scope="col">Crédit classique</th><th scope="col">LOA</th></tr></thead>
+        <tbody>
+          <tr><td>Propriété du véhicule</td><td>Dès l'achat</td><td>Optionnelle (rachat à la VR ou restitution)</td></tr>
+          <tr><td>Mensualités</td><td>Plus élevées</td><td>Réduites (jusqu'à −40 %)</td></tr>
+          <tr><td>Kilométrage</td><td>Libre</td><td>Forfait annuel au choix, ajustable</td></tr>
+          <tr><td>Entretien</td><td>À votre charge</td><td>Inclus dans le service d'entretien</td></tr>
+          <tr><td>Apport conseillé</td><td>15 à 25 %</td><td>Optionnel (0 % possible)</td></tr>
+          <tr><td>Idéal pour…</td><td>Garder son véhicule longtemps</td><td>Changer régulièrement, budget maîtrisé</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="form-note">Exemple représentatif LOA : véhicule de 30 000 €, apport 0 €, 48 mois, 15 000 km/an : 48 mensualités de 421 € (hors assurance facultative), VR 12 300 €. TAEG fixe 2,9 %. Montants indicatifs.</p>
+  </div>
+</section>

@@ -1,0 +1,113 @@
+<!--
+title: Rendez-vous — essai routier & atelier | Vélocité Motors Lille
+desc: Réservez votre essai routier ou votre créneau atelier (entretien, réparation, pneumatiques) en ligne. Confirmation immédiate.
+active: rendez-vous
+script: rendezvous
+-->
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Rendez-vous</span></nav>
+    <p class="eyebrow">Réservation en ligne</p>
+    <h1 class="title-xl">Choisissez votre créneau<span class="italic-accent"> — on s'occupe du reste.</span></h1>
+    <p class="lead" style="max-width:700px">Essai routier gratuit ou rendez-vous atelier : sélectionnez votre créneau et recevez une confirmation immédiate.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="seg-group" id="rdv-modes" role="group" aria-label="Type de rendez-vous" style="margin-bottom:var(--space-5)">
+      <button type="button" class="seg selected" data-mode="essai" aria-pressed="true">Essai routier (45 min, gratuit)</button>
+      <button type="button" class="seg" data-mode="atelier" aria-pressed="false">Atelier (entretien, réparation, pneus)</button>
+    </div>
+
+    <div class="sim-layout">
+      <div class="config-panel" id="rdv-form-wrap">
+        <h3 id="rdv-step-title">1 · Votre créneau</h3>
+        <div class="day-tabs" id="rdv-days" style="margin-top:14px" role="group" aria-label="Choix du jour"></div>
+        <p class="muted" style="margin-top:8px">Créneaux simulés pour la démonstration — fermé le dimanche.</p>
+        <div class="slot-grid" id="rdv-slots" role="group" aria-label="Choix de l'horaire"></div>
+
+        <h3 style="margin-top:var(--space-5)">2 · Vos informations</h3>
+        <form id="rdv-form" novalidate style="margin-top:12px">
+          <div id="rdv-essai-fields">
+            <div class="field">
+              <label for="rdv-vehicule">Véhicule à essayer <span class="req" aria-hidden="true">*</span></label>
+              <select id="rdv-vehicule" required></select>
+              <p class="error-msg">Choisissez un véhicule.</p>
+            </div>
+          </div>
+          <div id="rdv-atelier-fields" hidden>
+            <div class="field">
+              <label for="rdv-presta">Prestation souhaitée <span class="req" aria-hidden="true">*</span></label>
+              <select id="rdv-presta" required><option value="">Choisir…</option></select>
+              <p class="error-msg">Choisissez une prestation.</p>
+            </div>
+            <div class="form-grid" style="margin-top:var(--space-3)">
+              <div class="field">
+                <label for="rdv-immat">Immatriculation <span class="muted" style="font-weight:400">(optionnel)</span></label>
+                <input id="rdv-immat" type="text" placeholder="AA-000-AA">
+              </div>
+              <div class="field">
+                <label for="rdv-preteur">Prêt de véhicule <span class="muted" style="font-weight:400">(optionnel)</span></label>
+                <select id="rdv-preteur"><option value="oui">Oui, gratuitement</option><option value="non">Non merci</option></select>
+              </div>
+            </div>
+          </div>
+          <div class="form-grid" style="margin-top:var(--space-3)">
+            <div class="field">
+              <label for="rdv-nom">Nom et prénom <span class="req" aria-hidden="true">*</span></label>
+              <input id="rdv-nom" type="text" autocomplete="name" required>
+              <p class="error-msg">Merci d'indiquer votre nom.</p>
+            </div>
+            <div class="field">
+              <label for="rdv-tel">Téléphone <span class="req" aria-hidden="true">*</span></label>
+              <input id="rdv-tel" type="tel" data-type="tel" autocomplete="tel" required placeholder="06 00 00 00 00">
+              <p class="error-msg">Numéro invalide.</p>
+            </div>
+            <div class="field full">
+              <label for="rdv-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+              <input id="rdv-email" type="email" autocomplete="email" required>
+              <p class="error-msg">Adresse e-mail invalide.</p>
+            </div>
+            <div class="field full">
+              <label class="checkbox-row"><input type="checkbox" required><span>Je serai présent(e) avec mon permis de conduire (essai) ou ma carte grise (atelier), conformément à la <a href="confidentialite.html">politique de confidentialité</a>. <span class="req" aria-hidden="true">*</span></span></label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:14px">Confirmer mon rendez-vous</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="confirm-box" id="rdv-confirm" hidden>
+          <div class="confirm-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Rendez-vous confirmé !</h3>
+          <p class="gold" style="font-weight:600" id="rdv-confirm-recap"></p>
+          <p>Un e-mail et un SMS de rappel vous seront envoyés. En cas d'imprévu, appelez-nous au 01 99 00 32 10.</p>
+          <a class="btn btn-ghost btn-sm" href="index.html" style="margin-top:8px">Retour à l'accueil</a>
+        </div>
+        <div class="tile">
+          <h3>Bon à savoir</h3>
+          <ul class="equip-list" style="grid-template-columns:1fr;margin-top:10px">
+            <li>Essai routier : 45 minutes, gratuit, permis B obligatoire, accompagnants bienvenus.</li>
+            <li>Atelier : devis validé avant toute intervention, véhicule de courtoisie offert.</li>
+            <li>Électriques & hybrides : nos techniciens sont formés aux circuits haute tension.</li>
+            <li>Annulation sans frais jusqu'à 24 h avant le rendez-vous.</li>
+          </ul>
+        </div>
+        <div class="tile" style="margin-top:var(--space-3)">
+          <h3>Horaires</h3>
+          <div class="table-wrap" style="margin-top:10px">
+            <table class="data">
+              <tbody>
+                <tr><td>Lundi – Vendredi</td><td class="num">08 h 30 – 12 h 30 · 14 h – 19 h</td></tr>
+                <tr><td>Samedi</td><td class="num">09 h – 18 h</td></tr>
+                <tr><td>Dimanche</td><td class="num">Fermé</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
